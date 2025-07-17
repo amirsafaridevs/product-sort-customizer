@@ -1,0 +1,543 @@
+/**
+ * Admin CSS for Category Product Sorter
+ *
+ * @package CategoryProductSorter
+ * @since 1.0.0
+ */
+
+/* Tabs */
+.asd-wpsorter-tabs {
+    margin-top: 20px;
+}
+
+.asd-wpsorter-tab-nav {
+    display: flex;
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 30px;
+}
+
+.asd-wpsorter-tab-button {
+    background: none;
+    border: none;
+    padding: 15px 25px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.asd-wpsorter-tab-button:hover {
+    color: #0073aa;
+    background: #f9f9f9;
+}
+
+.asd-wpsorter-tab-button.active {
+    color: #0073aa;
+    border-bottom-color: #0073aa;
+    background: #fff;
+}
+
+.asd-wpsorter-tab-button .dashicons {
+    font-size: 16px;
+}
+
+.asd-wpsorter-tab-content {
+    display: none;
+}
+
+.asd-wpsorter-tab-content.active {
+    display: block;
+}
+
+/* Taxonomy Grid */
+.asd-wpsorter-taxonomy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.asd-wpsorter-taxonomy-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.asd-wpsorter-taxonomy-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.asd-wpsorter-taxonomy-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.asd-wpsorter-taxonomy-icon .dashicons {
+    font-size: 24px;
+}
+
+.asd-wpsorter-taxonomy-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.asd-wpsorter-taxonomy-info h3 {
+    margin: 0 0 5px 0;
+    color: #23282d;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.asd-wpsorter-taxonomy-info p {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.asd-wpsorter-taxonomy-action {
+    flex-shrink: 0;
+}
+
+/* Breadcrumb */
+.asd-wpsorter-breadcrumb {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.asd-wpsorter-breadcrumb a {
+    text-decoration: none;
+    color: #0073aa;
+}
+
+.asd-wpsorter-breadcrumb a:hover {
+    color: #005a87;
+}
+
+/* Sorting Container */
+.asd-wpsorter-sorting-container {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.asd-wpsorter-info {
+    background: #f9f9f9;
+    border-left: 4px solid #0073aa;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.asd-wpsorter-info p {
+    margin: 0;
+    color: #555;
+}
+
+/* Controls */
+.asd-wpsorter-controls {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.asd-wpsorter-search-container {
+    flex: 1;
+    max-width: 300px;
+}
+
+.asd-wpsorter-search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.asd-wpsorter-search-input:focus {
+    border-color: #0073aa;
+    outline: none;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+.asd-wpsorter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.asd-wpsorter-buttons .button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Status */
+.asd-wpsorter-status {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.asd-wpsorter-status.saving {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.asd-wpsorter-status.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.asd-wpsorter-status.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Product Table */
+.asd-wpsorter-product-table-container {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.asd-wpsorter-product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.asd-wpsorter-product-table th {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.asd-wpsorter-product-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.asd-wpsorter-product-row {
+    transition: background-color 0.2s ease;
+}
+
+.asd-wpsorter-product-row:hover {
+    background-color: #f8f9fa;
+}
+
+.asd-wpsorter-product-row.ui-sortable-helper {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: rotate(2deg);
+}
+
+.asd-wpsorter-product-row.ui-sortable-placeholder {
+    background: #e9ecef;
+    border: 2px dashed #adb5bd;
+    height: 60px;
+    visibility: visible !important;
+}
+
+/* Table Columns */
+.asd-wpsorter-handle-column {
+    width: 60px;
+}
+
+.asd-wpsorter-image-column {
+    width: 80px;
+}
+
+.asd-wpsorter-name-column {
+    min-width: 200px;
+}
+
+.asd-wpsorter-price-column {
+    width: 120px;
+}
+
+.asd-wpsorter-status-column {
+    width: 100px;
+}
+
+.asd-wpsorter-position-column {
+    width: 80px;
+    text-align: center;
+}
+
+/* Table Cells */
+.asd-wpsorter-handle-cell {
+    text-align: center;
+}
+
+.asd-wpsorter-drag-handle {
+    cursor: move;
+    color: #6c757d;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.asd-wpsorter-drag-handle:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.asd-wpsorter-image-cell {
+    text-align: center;
+}
+
+.asd-wpsorter-product-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.asd-wpsorter-product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.asd-wpsorter-no-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+    font-size: 20px;
+}
+
+.asd-wpsorter-name-cell {
+    font-weight: 500;
+}
+
+.asd-wpsorter-price-cell {
+    font-weight: 500;
+    color: #28a745;
+}
+
+.asd-wpsorter-no-price {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.asd-wpsorter-status-cell {
+    text-align: center;
+}
+
+.asd-wpsorter-status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.asd-wpsorter-status-publish {
+    background: #d4edda;
+    color: #155724;
+}
+
+.asd-wpsorter-status-draft {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.asd-wpsorter-status-private {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.asd-wpsorter-position-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+.asd-wpsorter-position-display {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: #0073aa;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* No Products */
+.asd-wpsorter-no-products {
+    padding: 40px 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.asd-wpsorter-no-products p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Notifications */
+.asd-wpsorter-notification {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    z-index: 999999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: asd-wpsorter-slide-in 0.3s ease-out;
+}
+
+.asd-wpsorter-notification-success {
+    background: #28a745;
+}
+
+.asd-wpsorter-notification-error {
+    background: #dc3545;
+}
+
+.asd-wpsorter-notification-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+@keyframes asd-wpsorter-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .asd-wpsorter-taxonomy-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .asd-wpsorter-product-table {
+        font-size: 14px;
+    }
+    
+    .asd-wpsorter-product-table th,
+    .asd-wpsorter-product-table td {
+        padding: 8px 10px;
+    }
+    
+    .asd-wpsorter-drag-handle {
+        font-size: 16px;
+        padding: 3px;
+    }
+    
+    .asd-wpsorter-product-thumbnail {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .asd-wpsorter-position-display {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 11px;
+    }
+    
+    .asd-wpsorter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .asd-wpsorter-status {
+        font-size: 14px;
+    }
+}
+
+/* Loading States */
+.asd-wpsorter-loading {
+    position: relative;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.asd-wpsorter-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: asd-wpsorter-spin 1s linear infinite;
+    z-index: 1000;
+}
+
+@keyframes asd-wpsorter-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Frontend Custom Order Notice */
+.asd-wpsorter-custom-order-notice {
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.asd-wpsorter-custom-order-notice small {
+    color: #0066cc;
+    font-style: italic;
+} 
