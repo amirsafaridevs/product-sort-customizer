@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin functionality for Category Product Sorter
+ * Admin functionality for Custom Product Display Order on Category and Tag Pages
  *
  * @package CategoryProductSorter
  * @since 1.0.0
@@ -64,8 +64,8 @@ class ASD_WPSorter_Admin {
     public function asd_add_admin_menu() {
         add_submenu_page(
             'woocommerce',
-            __('Category Product Sorter', 'product-sort-customizer'),
-            __('Product Sorter', 'product-sort-customizer'),
+            __('Custom Product Display Order', 'custom-product-display-order-on-category-and-tag-pages'),
+            __('Product Sorter', 'custom-product-display-order-on-category-and-tag-pages'),
             'manage_woocommerce',
             'asd-wpsorter-category-sorter',
             array($this, 'asd_admin_page')
@@ -106,10 +106,10 @@ class ASD_WPSorter_Admin {
             'nonce' => wp_create_nonce('asd_wpsorter_save_order_nonce'),
             'get_products_nonce' => wp_create_nonce('asd_wpsorter_get_products_nonce'),
             'strings' => array(
-                            'saving' => __('Saving...', 'product-sort-customizer'),
-            'saved' => __('Order saved successfully!', 'product-sort-customizer'),
-            'error' => __('Error saving order. Please try again.', 'product-sort-customizer'),
-            'confirm_reset' => __('Are you sure you want to reset the order? This action cannot be undone.', 'product-sort-customizer'),
+                            'saving' => __('Saving...', 'custom-product-display-order-on-category-and-tag-pages'),
+            'saved' => __('Order saved successfully!', 'custom-product-display-order-on-category-and-tag-pages'),
+            'error' => __('Error saving order. Please try again.', 'custom-product-display-order-on-category-and-tag-pages'),
+            'confirm_reset' => __('Are you sure you want to reset the order? This action cannot be undone.', 'custom-product-display-order-on-category-and-tag-pages'),
             ),
         ));
     }
@@ -121,7 +121,7 @@ class ASD_WPSorter_Admin {
         // Verify nonce for admin page access if GET parameters are present
         if (isset($_GET['term_id']) || isset($_GET['taxonomy'])) {
             if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'asd_wpsorter_admin_nonce')) {
-                wp_die(esc_html__('Security check failed.', 'product-sort-customizer'));
+                wp_die(esc_html__('Security check failed.', 'custom-product-display-order-on-category-and-tag-pages'));
             }
             
             // Safe to access $_GET data after nonce verification
@@ -147,27 +147,27 @@ class ASD_WPSorter_Admin {
         $tags = ASD_WPSorter_Utilities::asd_get_product_tags();
         ?>
         <div class="wrap">
-            <h1><?php esc_html_e('Product Sorter', 'product-sort-customizer'); ?></h1>
+            <h1><?php esc_html_e('Product Sorter', 'custom-product-display-order-on-category-and-tag-pages'); ?></h1>
             
             <div class="asd-wpsorter-tabs">
                 <div class="asd-wpsorter-tab-nav">
                     <button class="asd-wpsorter-tab-button active" data-tab="categories">
                         <span class="dashicons dashicons-category"></span>
-                        <?php esc_html_e('Categories', 'product-sort-customizer'); ?>
+                        <?php esc_html_e('Categories', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                     </button>
                     <button class="asd-wpsorter-tab-button" data-tab="tags">
                         <span class="dashicons dashicons-tag"></span>
-                        <?php esc_html_e('Tags', 'product-sort-customizer'); ?>
+                        <?php esc_html_e('Tags', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                     </button>
                 </div>
                 
                 <div class="asd-wpsorter-tab-content active" id="categories-tab">
-                    <h2><?php esc_html_e('Product Categories', 'product-sort-customizer'); ?></h2>
-                    <p><?php esc_html_e('Select a category to manage product sorting:', 'product-sort-customizer'); ?></p>
+                    <h2><?php esc_html_e('Product Categories', 'custom-product-display-order-on-category-and-tag-pages'); ?></h2>
+                    <p><?php esc_html_e('Select a category to manage product sorting:', 'custom-product-display-order-on-category-and-tag-pages'); ?></p>
                     
                     <div class="asd-wpsorter-taxonomy-grid">
                         <?php if (empty($categories)) : ?>
-                            <p><?php esc_html_e('No product categories found.', 'product-sort-customizer'); ?></p>
+                            <p><?php esc_html_e('No product categories found.', 'custom-product-display-order-on-category-and-tag-pages'); ?></p>
                         <?php else : ?>
                             <?php foreach ($categories as $category) : ?>
                                 <div class="asd-wpsorter-taxonomy-card">
@@ -178,12 +178,12 @@ class ASD_WPSorter_Admin {
                                         <h3><?php echo esc_html($category->name); ?></h3>
                                         <p><?php 
                                             /* translators: %d: number of products */
-                                            echo esc_html(sprintf(__('%d products', 'product-sort-customizer'), $category->count)); 
+                                            echo esc_html(sprintf(__('%d products', 'custom-product-display-order-on-category-and-tag-pages'), $category->count)); 
                                         ?></p>
                                     </div>
                                     <div class="asd-wpsorter-taxonomy-action">
                                         <a href="<?php echo esc_url(ASD_WPSorter_Utilities::asd_get_term_sorting_url($category->term_id, 'product_cat')); ?>" class="button button-primary">
-                                            <?php esc_html_e('Manage Sorting', 'product-sort-customizer'); ?>
+                                            <?php esc_html_e('Manage Sorting', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                                         </a>
                                     </div>
                                 </div>
@@ -193,12 +193,12 @@ class ASD_WPSorter_Admin {
                 </div>
                 
                 <div class="asd-wpsorter-tab-content" id="tags-tab">
-                    <h2><?php esc_html_e('Product Tags', 'product-sort-customizer'); ?></h2>
-                    <p><?php esc_html_e('Select a tag to manage product sorting:', 'product-sort-customizer'); ?></p>
+                    <h2><?php esc_html_e('Product Tags', 'custom-product-display-order-on-category-and-tag-pages'); ?></h2>
+                    <p><?php esc_html_e('Select a tag to manage product sorting:', 'custom-product-display-order-on-category-and-tag-pages'); ?></p>
                     
                     <div class="asd-wpsorter-taxonomy-grid">
                         <?php if (empty($tags)) : ?>
-                            <p><?php esc_html_e('No product tags found.', 'product-sort-customizer'); ?></p>
+                            <p><?php esc_html_e('No product tags found.', 'custom-product-display-order-on-category-and-tag-pages'); ?></p>
                         <?php else : ?>
                             <?php foreach ($tags as $tag) : ?>
                                 <div class="asd-wpsorter-taxonomy-card">
@@ -209,12 +209,12 @@ class ASD_WPSorter_Admin {
                                         <h3><?php echo esc_html($tag->name); ?></h3>
                                         <p><?php 
                                             /* translators: %d: number of products */
-                                            echo esc_html(sprintf(__('%d products', 'product-sort-customizer'), $tag->count)); 
+                                            echo esc_html(sprintf(__('%d products', 'custom-product-display-order-on-category-and-tag-pages'), $tag->count)); 
                                         ?></p>
                                     </div>
                                     <div class="asd-wpsorter-taxonomy-action">
                                         <a href="<?php echo esc_url(ASD_WPSorter_Utilities::asd_get_term_sorting_url($tag->term_id, 'product_tag')); ?>" class="button button-primary">
-                                            <?php esc_html_e('Manage Sorting', 'product-sort-customizer'); ?>
+                                            <?php esc_html_e('Manage Sorting', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                                         </a>
                                     </div>
                                 </div>
@@ -237,14 +237,14 @@ class ASD_WPSorter_Admin {
         $term = get_term($term_id, $taxonomy);
         
         if (!$term || is_wp_error($term)) {
-            wp_die(esc_html__('Term not found.', 'product-sort-customizer'));
+            wp_die(esc_html__('Term not found.', 'custom-product-display-order-on-category-and-tag-pages'));
         }
 
         $products = ASD_WPSorter_Utilities::asd_get_term_products($term_id, $taxonomy);
         $products_with_order = $this->database->asd_get_term_products_with_order($term_id, $taxonomy);
         
-        $taxonomy_label = $taxonomy === 'product_cat' ? __('Category', 'product-sort-customizer') : __('Tag', 'product-sort-customizer');
-        $taxonomy_plural = $taxonomy === 'product_cat' ? __('Categories', 'product-sort-customizer') : __('Tags', 'product-sort-customizer');
+        $taxonomy_label = $taxonomy === 'product_cat' ? __('Category', 'custom-product-display-order-on-category-and-tag-pages') : __('Tag', 'custom-product-display-order-on-category-and-tag-pages');
+        $taxonomy_plural = $taxonomy === 'product_cat' ? __('Categories', 'custom-product-display-order-on-category-and-tag-pages') : __('Tags', 'custom-product-display-order-on-category-and-tag-pages');
         
         ?>
         <div class="wrap">
@@ -252,7 +252,7 @@ class ASD_WPSorter_Admin {
                 <?php
                 printf(
                     /* translators: %1$s: taxonomy label, %2$s: term name */
-                    esc_html__('Product Sorting for %1$s: %2$s', 'product-sort-customizer'),
+                    esc_html__('Product Sorting for %1$s: %2$s', 'custom-product-display-order-on-category-and-tag-pages'),
                     esc_html($taxonomy_label),
                     esc_html($term->name)
                 );
@@ -264,7 +264,7 @@ class ASD_WPSorter_Admin {
                     <?php 
                     printf(
                         /* translators: %s: taxonomy plural name */
-                        esc_html__('← Back to %s', 'product-sort-customizer'), esc_html($taxonomy_plural)
+                        esc_html__('← Back to %s', 'custom-product-display-order-on-category-and-tag-pages'), esc_html($taxonomy_plural)
                     ); 
                     ?>
                 </a>
@@ -276,7 +276,7 @@ class ASD_WPSorter_Admin {
                         <?php
                         printf(
                             /* translators: %1$d: number of products, %2$s: taxonomy label */
-                            esc_html__('This %2$s contains %1$d products. Drag and drop to reorder them.', 'product-sort-customizer'),
+                            esc_html__('This %2$s contains %1$d products. Drag and drop to reorder them.', 'custom-product-display-order-on-category-and-tag-pages'),
                             count($products),
                             esc_html(strtolower($taxonomy_label))
                         );
@@ -286,16 +286,16 @@ class ASD_WPSorter_Admin {
 
                 <div class="asd-wpsorter-controls">
                     <div class="asd-wpsorter-search-container">
-                        <input type="text" id="asd-wpsorter-product-search" class="asd-wpsorter-search-input" placeholder="<?php esc_attr_e('Search products...', 'product-sort-customizer'); ?>">
+                        <input type="text" id="asd-wpsorter-product-search" class="asd-wpsorter-search-input" placeholder="<?php esc_attr_e('Search products...', 'custom-product-display-order-on-category-and-tag-pages'); ?>">
                     </div>
                     <div class="asd-wpsorter-buttons">
                         <button type="button" id="asd-wpsorter-save-order" class="button button-primary">
                             <span class="dashicons dashicons-saved"></span>
-                            <?php esc_html_e('Save Order', 'product-sort-customizer'); ?>
+                            <?php esc_html_e('Save Order', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                         </button>
                         <button type="button" id="asd-wpsorter-reset-order" class="button">
                             <span class="dashicons dashicons-update"></span>
-                            <?php esc_html_e('Reset Order', 'product-sort-customizer'); ?>
+                            <?php esc_html_e('Reset Order', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                         </button>
                     </div>
                 </div>
@@ -305,18 +305,18 @@ class ASD_WPSorter_Admin {
                 <div class="asd-wpsorter-product-table-container">
                     <?php if (empty($products)) : ?>
                         <div class="asd-wpsorter-no-products">
-                            <p><?php esc_html_e('No products found in this category.', 'product-sort-customizer'); ?></p>
+                            <p><?php esc_html_e('No products found in this category.', 'custom-product-display-order-on-category-and-tag-pages'); ?></p>
                         </div>
                     <?php else : ?>
                         <table class="asd-wpsorter-product-table">
                             <thead>
                                 <tr>
-                                    <th class="asd-wpsorter-handle-column"><?php esc_html_e('Sort', 'product-sort-customizer'); ?></th>
-                                    <th class="asd-wpsorter-image-column"><?php esc_html_e('Image', 'product-sort-customizer'); ?></th>
-                                    <th class="asd-wpsorter-name-column"><?php esc_html_e('Product', 'product-sort-customizer'); ?></th>
-                                    <th class="asd-wpsorter-price-column"><?php esc_html_e('Price', 'product-sort-customizer'); ?></th>
-                                    <th class="asd-wpsorter-status-column"><?php esc_html_e('Status', 'product-sort-customizer'); ?></th>
-                                    <th class="asd-wpsorter-position-column"><?php esc_html_e('Position', 'product-sort-customizer'); ?></th>
+                                    <th class="asd-wpsorter-handle-column"><?php esc_html_e('Sort', 'custom-product-display-order-on-category-and-tag-pages'); ?></th>
+                                    <th class="asd-wpsorter-image-column"><?php esc_html_e('Image', 'custom-product-display-order-on-category-and-tag-pages'); ?></th>
+                                    <th class="asd-wpsorter-name-column"><?php esc_html_e('Product', 'custom-product-display-order-on-category-and-tag-pages'); ?></th>
+                                    <th class="asd-wpsorter-price-column"><?php esc_html_e('Price', 'custom-product-display-order-on-category-and-tag-pages'); ?></th>
+                                    <th class="asd-wpsorter-status-column"><?php esc_html_e('Status', 'custom-product-display-order-on-category-and-tag-pages'); ?></th>
+                                    <th class="asd-wpsorter-position-column"><?php esc_html_e('Position', 'custom-product-display-order-on-category-and-tag-pages'); ?></th>
                                 </tr>
                             </thead>
                             <tbody id="asd-wpsorter-product-list">
@@ -379,7 +379,7 @@ class ASD_WPSorter_Admin {
                 <?php if ($product_price) : ?>
                     <?php echo wp_kses_post($product_price); ?>
                 <?php else : ?>
-                    <span class="asd-wpsorter-no-price"><?php esc_html_e('N/A', 'product-sort-customizer'); ?></span>
+                    <span class="asd-wpsorter-no-price"><?php esc_html_e('N/A', 'custom-product-display-order-on-category-and-tag-pages'); ?></span>
                 <?php endif; ?>
             </td>
             <td class="asd-wpsorter-status-cell">
@@ -402,7 +402,7 @@ class ASD_WPSorter_Admin {
         if (isset($_POST['nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'asd_wpsorter_save_order_nonce')) {
             // Check permissions
             if (!ASD_WPSorter_Utilities::asd_user_can_manage_sorting()) {
-                wp_die(esc_html__('You do not have permission to perform this action.', 'product-sort-customizer'));
+                wp_die(esc_html__('You do not have permission to perform this action.', 'custom-product-display-order-on-category-and-tag-pages'));
             }
 
             // Safe to access $_POST data after nonce verification
@@ -418,12 +418,12 @@ class ASD_WPSorter_Admin {
             }
 
             if ($success) {
-                wp_send_json_success(__('Order saved successfully!', 'product-sort-customizer'));
+                wp_send_json_success(__('Order saved successfully!', 'custom-product-display-order-on-category-and-tag-pages'));
             } else {
-                wp_send_json_error(__('Error saving order. Please try again.', 'product-sort-customizer'));
+                wp_send_json_error(__('Error saving order. Please try again.', 'custom-product-display-order-on-category-and-tag-pages'));
             }
         } else {
-            wp_die(esc_html__('Security check failed.', 'product-sort-customizer'));
+            wp_die(esc_html__('Security check failed.', 'custom-product-display-order-on-category-and-tag-pages'));
         }
     }
 
@@ -435,7 +435,7 @@ class ASD_WPSorter_Admin {
         if (isset($_POST['nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'asd_wpsorter_get_products_nonce')) {
             // Check permissions
             if (!ASD_WPSorter_Utilities::asd_user_can_manage_sorting()) {
-                wp_die(esc_html__('You do not have permission to perform this action.', 'product-sort-customizer'));
+                wp_die(esc_html__('You do not have permission to perform this action.', 'custom-product-display-order-on-category-and-tag-pages'));
             }
 
             // Safe to access $_POST data after nonce verification
@@ -457,7 +457,7 @@ class ASD_WPSorter_Admin {
 
             wp_send_json_success($products_data);
         } else {
-            wp_die(esc_html__('Security check failed.', 'product-sort-customizer'));
+            wp_die(esc_html__('Security check failed.', 'custom-product-display-order-on-category-and-tag-pages'));
         }
     }
 
@@ -469,7 +469,7 @@ class ASD_WPSorter_Admin {
         <div class="form-field">
             <p>
                 <a href="<?php echo esc_url(admin_url('admin.php?page=asd-wpsorter-category-sorter')); ?>" class="button">
-                    <?php esc_html_e('Manage Product Sorting', 'product-sort-customizer'); ?>
+                    <?php esc_html_e('Manage Product Sorting', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                 </a>
             </p>
         </div>
@@ -485,14 +485,14 @@ class ASD_WPSorter_Admin {
         ?>
         <tr class="form-field">
             <th scope="row">
-                <label><?php esc_html_e('Product Sorting', 'product-sort-customizer'); ?></label>
+                <label><?php esc_html_e('Product Sorting', 'custom-product-display-order-on-category-and-tag-pages'); ?></label>
             </th>
             <td>
                 <a href="<?php echo esc_url(ASD_WPSorter_Utilities::asd_get_term_sorting_url($term->term_id, $term->taxonomy)); ?>" class="button">
-                    <?php esc_html_e('Manage Product Sorting', 'product-sort-customizer'); ?>
+                    <?php esc_html_e('Manage Product Sorting', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                 </a>
                 <p class="description">
-                    <?php esc_html_e('Click to manage the order of products in this category.', 'product-sort-customizer'); ?>
+                    <?php esc_html_e('Click to manage the order of products in this category.', 'custom-product-display-order-on-category-and-tag-pages'); ?>
                 </p>
             </td>
         </tr>

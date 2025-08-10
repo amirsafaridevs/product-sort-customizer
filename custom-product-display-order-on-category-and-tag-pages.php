@@ -1,11 +1,12 @@
 <?php
 /**
- * Plugin Name:  Product Sort Customizer
+ * Plugin Name:  Custom Product Display Order on Category and Tag Pages
  * Description: Allows admin users to define per-category and per-tag product sorting in WooCommerce. Each product can have a unique order in every category and tag.
  * Version: 1.0.0
  * Author: Amir Safari
  * Author URI: https://amirsafaridev.github.io/
- * Text Domain: product-sort-customizer
+ * Text Domain: custom-product-display-order-on-category-and-tag-pages
+ * Domain Path: /languages
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Requires at least: 5.5
@@ -14,7 +15,7 @@
  * WC requires at least: 5.0
  * WC tested up to: 8.0
  *
- * @package CategoryProductSorter
+ * @package CustomProductDisplayOrderOnCategoryAndTagPages
  * @version 1.0.0
  * @author Amir Safari
  */
@@ -170,7 +171,7 @@ class ASD_WPSorter_Category_Product_Sorter {
                 <?php
                 printf(
                     /* translators: %s: This is a link to the WooCommerce plugin website. */
-                    esc_html__('Category Product Sorter for WooCommerce requires %s to be installed and activated.', 'product-sort-customizer'),
+                    esc_html__('Custom Product Display Order on Category and Tag Pages requires %s to be installed and activated.', 'custom-product-display-order-on-category-and-tag-pages'),
                     '<a href="https://woocommerce.com/" target="_blank">WooCommerce</a>'
                 );
                 ?>

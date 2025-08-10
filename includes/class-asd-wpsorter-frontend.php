@@ -1,6 +1,6 @@
 <?php
 /**
- * Frontend functionality for Category Product Sorter
+ * Frontend functionality for Custom Product Display Order on Category and Tag Pages
  *
  * @package CategoryProductSorter
  * @since 1.0.0
@@ -119,12 +119,12 @@ class ASD_WPSorter_Frontend {
             if ($term && is_object($term) && in_array($term->taxonomy, array('product_cat', 'product_tag'))) {
                 $order_data = $this->database->asd_get_product_order($term->term_id, $term->taxonomy);
                 if (!empty($order_data)) {
-                    $taxonomy_label = $term->taxonomy === 'product_cat' ? __('category', 'product-sort-customizer') : __('tag', 'product-sort-customizer');
+                    $taxonomy_label = $term->taxonomy === 'product_cat' ? __('category', 'custom-product-display-order-on-category-and-tag-pages') : __('tag', 'custom-product-display-order-on-category-and-tag-pages');
                     echo '<div class="asd-wpsorter-custom-order-notice">';
                     printf('<small>%s</small>', 
                         sprintf(
                             /* translators: %s: taxonomy label (category or tag) */
-                            esc_html__('Products are displayed in custom order for this %s.', 'product-sort-customizer'),
+                            esc_html__('Products are displayed in custom order for this %s.', 'custom-product-display-order-on-category-and-tag-pages'),
                             esc_html($taxonomy_label)
                         )
                     );
@@ -266,13 +266,13 @@ class ASD_WPSorter_Frontend {
             return '';
         }
 
-        $taxonomy_label = $taxonomy === 'product_cat' ? __('category', 'product-sort-customizer') : __('tag', 'product-sort-customizer');
+        $taxonomy_label = $taxonomy === 'product_cat' ? __('category', 'custom-product-display-order-on-category-and-tag-pages') : __('tag', 'custom-product-display-order-on-category-and-tag-pages');
         
         return sprintf(
             '<div class="asd-wpsorter-custom-order-notice"><small>%s</small></div>',
             sprintf(
                 /* translators: %s: taxonomy label (category or tag) */
-                esc_html__('Products are displayed in custom order for this %s.', 'product-sort-customizer'),
+                esc_html__('Products are displayed in custom order for this %s.', 'custom-product-display-order-on-category-and-tag-pages'),
                 esc_html($taxonomy_label)
             )
         );

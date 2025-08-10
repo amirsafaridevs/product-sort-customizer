@@ -1,4 +1,4 @@
-=== Product Sort Customizer ===
+=== Custom Product Display Order on Category and Tag Pages ===
 Contributors: amirsafari
 Tags: woocommerce, product sorting, category, tag, drag and drop
 Requires at least: 5.5
@@ -12,7 +12,7 @@ Drag-and-drop product sorting for WooCommerce categories and tags with modern ad
 
 == Description ==
 
-**Product Sorter for WooCommerce** lets you define a custom display order for products in each WooCommerce category *and* tag, independently. Easily drag and drop products in a modern, searchable admin interface. Compatible with the latest WooCommerce, including HPOS.
+**Custom Product Display Order on Category and Tag Pages** lets you define a custom display order for products in each WooCommerce category and tag, independently. Easily drag and drop products in a modern, searchable admin interface. Compatible with the latest WooCommerce, including HPOS.
 
 **Features:**
 - **Category & Tag Sorting:** Set a unique product order for every category and every tag, independently.

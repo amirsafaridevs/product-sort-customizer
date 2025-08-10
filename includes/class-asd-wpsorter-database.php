@@ -1,6 +1,6 @@
 <?php
 /**
- * Database handler for Category Product Sorter
+ * Database handler for Custom Product Display Order on Category and Tag Pages
  *
  * @package CategoryProductSorter
  * @since 1.0.0

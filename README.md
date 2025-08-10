@@ -1,10 +1,10 @@
-# Product Sorter for WooCommerce by ASD
+# Custom Product Display Order on Category and Tag Pages
 
 A powerful WordPress plugin that allows administrators to define custom product sorting for each WooCommerce category and tag independently.
 
 ## Description
 
-Category Product Sorter for WooCommerce enables you to manage the display order of products within each product category separately. This means a product can have different positions in different categories, giving you complete control over how products are displayed to your customers.
+This plugin enables you to manage the display order of products within each WooCommerce category and tag separately. A product can have different positions in different categories and tags, giving you complete control over how products are displayed to your customers.
 
 ## Features
 
@@ -25,7 +25,7 @@ Category Product Sorter for WooCommerce enables you to manage the display order 
 
 ## Installation
 
-1. Upload the `category-product-sorter` folder to the `/wp-content/plugins/` directory
+1. Upload the `custom-product-display-order-on-category-and-tag-pages` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Navigate to WooCommerce > Product Sorter in your admin dashboard
 4. Select a category to manage product sorting
@@ -105,8 +105,8 @@ The plugin provides several hooks for developers:
 
 The plugin is fully translation-ready. To translate:
 
-1. Copy the `languages/category-product-sorter.pot` file
-2. Rename it to your language code (e.g., `category-product-sorter-fr_FR.po`)
+1. Copy the `languages/custom-product-display-order-on-category-and-tag-pages.pot` file
+2. Rename it to your language code (e.g., `custom-product-display-order-on-category-and-tag-pages-fr_FR.po`)
 3. Translate the strings using a tool like Poedit
 4. Save as `.mo` file in the `languages` directory
 

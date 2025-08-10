@@ -1,6 +1,6 @@
 <?php
 /**
- * Utilities for Category Product Sorter
+ * Utilities for Custom Product Display Order on Category and Tag Pages
  *
  * @package CategoryProductSorter
  * @since 1.0.0
@@ -234,7 +234,7 @@ class ASD_WPSorter_Utilities {
     public static function asd_format_product_count($count) {
         return sprintf(
             /* translators: %d: number of products */
-            _n('%d product', '%d products', $count, 'product-sort-customizer'),
+            _n('%d product', '%d products', $count, 'custom-product-display-order-on-category-and-tag-pages'),
             $count
         );
     }

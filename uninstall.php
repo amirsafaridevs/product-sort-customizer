@@ -1,6 +1,6 @@
 <?php
 /**
- * Uninstall script for Category Product Sorter
+ * Uninstall script for Custom Product Display Order on Category and Tag Pages
  *
  * This file is executed when the plugin is deleted.
  * It removes all plugin data from the database.
